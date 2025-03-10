@@ -1,0 +1,7 @@
+# node-dependences
+node_modules
+
+# files
+.env
+animes
+users
