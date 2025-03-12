@@ -33,4 +33,5 @@ module.exports = {
   ANIME_ALREADY_IN_LIST: "Este anime já está na sua lista!",
   ANIME_INST_IN_LIST:
     "Não é possível remover um anime que não está na sua lista !",
+  CATEGORY_ANIME_NOT_FOUND: "Nenhum anime encontrado para essa categoria.",
 };

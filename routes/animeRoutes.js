@@ -27,6 +27,11 @@ router.post(
 router.get("/all", verifyToken, AnimeController.getAllAnimes);
 router.get("/search/:title", verifyToken, AnimeController.getAnimeByTitle);
 router.get("/:id", verifyToken, validateId, AnimeController.getAnimeById);
+router.get(
+  "/category/:category",
+  verifyToken,
+  AnimeController.getAnimesByCategory
+);
 router.patch(
   "/update/:id",
   verifyToken,

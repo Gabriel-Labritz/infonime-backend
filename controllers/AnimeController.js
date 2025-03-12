@@ -191,4 +191,27 @@ module.exports = class AnimeController {
       return res.status(500).json({ message: errorsMessages.SERVER_ERROR });
     }
   }
+
+  static async getAnimesByCategory(req, res) {
+    const { category } = req.params;
+
+    try {
+      const animes = await Anime.find({
+        category: { $regex: new RegExp(category, "i") },
+      });
+
+      if (!animes || animes.length === 0) {
+        return res
+          .status(404)
+          .json({ message: errorsMessages.CATEGORY_ANIME_NOT_FOUND });
+      }
+
+      return res.status(200).json({ animes });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: errorsMessages.SERVER_ERROR });
+    }
+
+    return res.status(200).json({ message: "Rota de category ok!" });
+  }
 };
