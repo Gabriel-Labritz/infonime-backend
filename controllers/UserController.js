@@ -72,10 +72,7 @@ module.exports = class UserController {
     try {
       const { _id: userId } = req.user;
 
-      const user = await User.findById(userId).populate({
-        path: "animeList.anime",
-        select: "title anime_backdrop seasons episodes",
-      });
+      const user = await User.findById(userId);
 
       if (!user) {
         return res.status(404).json({ message: errorsMessages.USER_NOT_FOUND });
@@ -86,8 +83,8 @@ module.exports = class UserController {
           _id: user._id,
           user_name: user.user_name,
           email: user.email,
-          user_image: user.user_image,
-          animeList: user.animeList,
+          // user_image: user.user_image,
+          // animeList: user.animeList,
         },
       });
     } catch (error) {
@@ -275,9 +272,9 @@ module.exports = class UserController {
 
       await user.save();
 
-      return res
-        .status(200)
-        .json({ message: successMessages.ANIME_REMOVE_FROM_LIST_SUCCESS });
+      return res.status(200).json({
+        message: `${anime.title} ${successMessages.ANIME_REMOVE_FROM_LIST_SUCCESS}`,
+      });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ message: errorsMessages.SERVER_ERROR });
@@ -337,6 +334,22 @@ module.exports = class UserController {
           ratingCount: anime.ratingCount,
         },
       });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: errorsMessages.SERVER_ERROR });
+    }
+  }
+
+  static async myList(req, res) {
+    const { _id: userId } = req.user;
+
+    try {
+      const user = await User.findById(userId).populate({
+        path: "animeList.anime",
+        select: "title anime_backdrop seasons episodes",
+      });
+
+      return res.status(200).json({ animeList: user.animeList });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ message: errorsMessages.SERVER_ERROR });

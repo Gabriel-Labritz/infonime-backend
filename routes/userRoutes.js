@@ -24,6 +24,7 @@ router.post(
 );
 router.post("/login", validateUserLogin, UserController.login);
 router.get("/myprofile", verifyToken, UserController.myUserProfile);
+router.get("/mylist", verifyToken, UserController.myList);
 router.post(
   "/add-to-list/:id",
   verifyToken,
