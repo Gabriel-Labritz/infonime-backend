@@ -11,3 +11,7 @@ esse projeto foi desenvolvido com foco em praticar:
 
 ## Tecnologias 🛠
 - [NodeJs](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs)
+- [Express](https://expressjs.com/pt-br/)
+- [JWT](https://jwt.io)
+- [Mongoose](https://mongoosejs.com)
+- [MongoDB](https://www.mongodb.com)
