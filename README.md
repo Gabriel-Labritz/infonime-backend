@@ -24,5 +24,7 @@ Este projeto foi desenvolvido com foco em praticar:
 
 ## 🙋‍♂️ Autor
 
-- [GitHub – Gabriel Labritz](https://github.com/Gabriel-Labritz)
-- [LinkedIn – Gabriel Labritz](https://www.linkedin.com/in/gabriel-labritz-199499229/)
+Gabriel Labritz - Dev Júnior
+
+- [GitHub](https://github.com/Gabriel-Labritz)
+- [LinkedIn](https://www.linkedin.com/in/gabriel-labritz-199499229/)
